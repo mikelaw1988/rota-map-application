@@ -1,0 +1,701 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: Arial, sans-serif;
+  height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Container to create scrollable space */
+#container {
+  position: relative;
+  padding-bottom: 700vh; /* Ensures enough space for scrolling */
+}
+
+/* Sticky Sections */
+.sticky-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Section 1 and Section 8 Styling - Subtle SVG Background */
+#section1, #section8 {
+  background-color: black; /* Solid black background */
+  background-image: url('ADR-benefit-nhs.svg'); /* SVG Background */
+  background-repeat: repeat; /* Repeats the SVG */
+  background-size: 100px 100px; /* Adjust size of the SVG pattern */
+  background-position: center; /* Ensures pattern is centered */
+  background-blend-mode: multiply; /* Blends SVG with the black background */
+  color: white;
+  padding: 20px;
+}
+
+/* Additional Subtle Styling for SVG */
+#section1::before, #section8::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('ADR-benefit-nhs.svg');
+  background-repeat: repeat;
+  background-size: 100px 100px;
+  background-position: center;
+  opacity: 0.2; /* Subtle SVG visibility */
+  z-index: 0; /* Place the pattern behind content */
+}
+
+/* Content in First and Last Sections */
+#section1 .intro-content, #section8 .intro-content {
+  z-index: 1; /* Ensure text content appears above the background */
+  position: relative; /* For proper stacking context */
+  text-align: center;
+}
+
+#section1 .intro-content h1, #section8 .intro-content h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+#section1 .intro-content .subtitle, #section8 .intro-content .subtitle {
+  font-size: 1.5rem;
+  font-weight: lighter;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* Interactive White Box Button */
+.white-box {
+  background-color: white;
+  color: black;
+  padding: 20px 40px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.white-box:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Colors for Sections 2 to 7 */
+#section2 {
+  background-color: #2e4f7e; 
+  color: #e8eef6;             
+}
+
+#section3 {
+  background-color: #e8eef6; /* Green */
+  color: #2e4f7e;
+}
+
+#section4 {
+  background-color: #fff; /* Yellow */
+  color: #2e4f7e;
+}
+
+#section5 {
+  background-color: #2e4f7e; 
+  color: white;
+}
+
+#section6 {
+  background-color: #e8eef6; /* Orange */
+  color: #2e4f7e;
+}
+
+#section7 {
+  background-color: #2e4f7e; /* Teal */
+  color: white;
+}
+
+#section9 {
+  background-color: #fff; /* Yellow */
+  color: #2e4f7e;
+}
+
+/* Interaction Buttons */
+.interaction {
+  display: flex;
+  flex-direction: row; /* Set buttons in a horizontal row */
+  gap: 15px; /* Add space between buttons */
+  margin-top: 20px;
+  justify-content: center; /* Center buttons horizontally */
+}
+
+/* Section 2 General Styling */
+#section2 {
+  background-color: #2e4f7e; /* Background color */
+  color: white;             /* White text color */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  /* Align items to the left */
+  justify-content: flex-start;
+  text-align: left;         /* Left-align text */
+  padding: 40px 20px;
+  position: relative;       /* For SVG positioning */
+}
+
+/* Header Styling */
+#section2 h1 {
+  width: 75%;       /* Header width */
+  font-size: 3rem;  /* Larger font size */
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: left; /* Left-align header */
+}
+
+/* Interaction Buttons */
+#section2 .interaction {
+  display: flex;
+  justify-content: space-between; /* Equal space between buttons */
+  align-items: center; /* Align items vertically */
+  gap: 15px; /* Optional: Space between buttons for additional control */
+  margin-top: 20px;
+  width: 50%; /* Match the width of the header */
+}
+
+
+/* Answer Container */
+#section2 .answer-container {
+  margin-top: 20px;
+  padding: 15px;
+  color: white;
+  font-size: 1.5rem; /* Larger font size */
+  border-radius: 5px;
+  line-height: 1.5;
+  text-align: left; /* Left-align text */
+  visibility: hidden; /* Initially hidden */
+  transition: all 0.3s ease;
+  width: 50%; /* Matches the header and button width */
+}
+
+#section2 .answer-container.visible {
+  visibility: visible; /* Show on button interaction */
+  min-height: 50px; /* Adjust height for content */
+}
+
+
+/* Section 2 SVG Styling */
+#section2 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: 40px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 3 SVG Styling */
+#section3 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: 40px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 4 SVG Styling */
+#section4 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: -100px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 5 SVG Styling */
+#section5 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: 40px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 6 SVG Styling */
+#section6 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: -100px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 7 SVG Styling */
+#section7 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: 40px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 9 SVG Styling */
+#section9 .section2-svg {
+  position: absolute; /* Position relative to the parent */
+  bottom: 40px;       /* Adjust spacing from the bottom */
+  right: 20px;        /* Adjust spacing from the right */
+  width: 600px;       /* Adjust SVG size */
+  height: auto;       /* Maintain aspect ratio */
+  z-index: 1;         /* Place above the background but below text if necessary */
+}
+
+/* Section 2 Button Styling */
+#section2 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #e8eef6;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section2 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+/* Section 3 Button Styling */
+#section3 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #2e4f7e;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section3 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+/* Section 4 Button Styling */
+#section4 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #2e4f7e;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section4 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+/* Section 5 Button Styling */
+#section5 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #e8eef6;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section5 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+/* Section 6 Button Styling */
+#section6 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #2e4f7e;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section6 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+/* Section 9 Button Styling */
+#section9 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #2e4f7e;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section9 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+
+#section2 .button__horizontal,
+#section2 .button__vertical,
+#section3 .button__horizontal,
+#section3 .button__vertical,
+#section4 .button__horizontal,
+#section4 .button__vertical,
+#section5 .button__horizontal,
+#section5 .button__vertical,
+#section6 .button__horizontal,
+#section6 .button__vertical,
+#section9 .button__horizontal,
+#section9 .button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+
+#section2 .button__horizontal::before,
+#section2 .button__vertical::before,
+#section3 .button__horizontal::before,
+#section3 .button__vertical::before,
+#section4 .button__horizontal::before,
+#section4 .button__vertical::before,
+#section5 .button__horizontal::before,
+#section5 .button__vertical::before,
+#section6 .button__horizontal::before,
+#section6 .button__vertical::before,
+#section9 .button__horizontal::before,
+#section9 .button__vertical::before {
+  content: '';
+  position: absolute;
+  border: inherit;
+}
+
+#section2 .button__horizontal,
+#section3 .button__horizontal,
+#section4 .button__horizontal,
+#section5 .button__horizontal,
+#section6 .button__horizontal,
+#section9 .button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+
+#section2 .button__horizontal::before,
+#section3 .button__horizontal::before,
+#section4 .button__horizontal::before,
+#section5 .button__horizontal::before,
+#section6 .button__horizontal::before,
+#section9 .button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+
+#section2 .button:hover .button__horizontal,
+#section3 .button:hover .button__horizontal,
+#section4 .button:hover .button__horizontal,
+#section5 .button:hover .button__horizontal,
+#section6 .button:hover .button__horizontal,
+#section9 .button:hover .button__horizontal {
+  transform: scaleX(0);
+}
+
+#section2 .button__vertical,
+#section3 .button__vertical,
+#section4 .button__vertical,
+#section5 .button__vertical,
+#section6 .button__vertical,
+#section9 .button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+
+#section2 .button__vertical::before,
+#section3 .button__vertical::before,
+#section4 .button__vertical::before,
+#section5 .button__vertical::before,
+#section6 .button__vertical::before,
+#section9 .button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+
+#section2 .button:hover .button__vertical,
+#section3 .button:hover .button__vertical,
+#section4 .button:hover .button__vertical,
+#section5 .button:hover .button__vertical,
+#section6 .button:hover .button__vertical,
+#section9 .button:hover .button__vertical {
+  transform: scaleY(0);
+}
+
+
+/* Section 7 Button Styling */
+#section7 .button {
+  --offset: 10px;
+  --border-size: 2px;
+  display: block;
+  position: relative;
+  padding: 1.5em 3em;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: #e8eef6;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 0;
+  box-shadow: inset 0 0 0 var(--border-size) currentcolor;
+  transition: background 0.8s ease;
+}
+
+#section7 .button:hover {
+  background: rgba(100, 0, 0, 0.03);
+}
+
+#section7 .button__horizontal,
+#section7 .button__vertical {
+  position: absolute;
+  top: var(--horizontal-offset, 0);
+  right: var(--vertical-offset, 0);
+  bottom: var(--horizontal-offset, 0);
+  left: var(--vertical-offset, 0);
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+
+#section7 .button__horizontal::before,
+#section7 .button__vertical::before {
+  content: '';
+  position: absolute;
+  border: inherit;
+}
+
+#section7 .button__horizontal {
+  --vertical-offset: calc(var(--offset) * -1);
+  border-top: var(--border-size) solid currentcolor;
+  border-bottom: var(--border-size) solid currentcolor;
+}
+
+#section7 .button__horizontal::before {
+  top: calc(var(--vertical-offset) - var(--border-size));
+  bottom: calc(var(--vertical-offset) - var(--border-size));
+  left: calc(var(--vertical-offset) * -1);
+  right: calc(var(--vertical-offset) * -1);
+}
+
+#section7 .button:hover .button__horizontal {
+  transform: scaleX(0);
+}
+
+#section7 .button__vertical {
+  --horizontal-offset: calc(var(--offset) * -1);
+  border-left: var(--border-size) solid currentcolor;
+  border-right: var(--border-size) solid currentcolor;
+}
+
+#section7 .button__vertical::before {
+  top: calc(var(--horizontal-offset) * -1);
+  bottom: calc(var(--horizontal-offset) * -1);
+  left: calc(var(--horizontal-offset) - var(--border-size));
+  right: calc(var(--horizontal-offset) - var(--border-size));
+}
+
+#section7 .button:hover .button__vertical {
+  transform: scaleY(0);
+}
+
+/* Answer Container */
+.answer-container {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  min-height: 50px; /* Reserve space to prevent jolting */
+  text-align: center;
+  visibility: hidden; /* Keep space but hide content initially */
+}
+
+.answer-container.visible {
+  visibility: visible; /* Show content when revealed */
+}
+
+/* Navigation Button Container */
+.navigation-buttons {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: row; /* Ensure buttons are aligned horizontally */
+  justify-content: flex-start; /* Align buttons to the left */
+  gap: 20px; /* Add space between the buttons */
+  position: absolute;
+  bottom: 20px; /* Align at the bottom of the section */
+  left: 20px; /* Adjust from the left edge */
+  width: auto; /* Allow buttons to size naturally */
+}
+
+/* next and back Button Styling */
+.next-button, .back-button {
+  background-color: #2e4f7e;
+  color: #e8eef6;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effects */
+.next-button:hover, .back-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Initially Hidden Buttons */
+.next-button[disabled], .back-button[disabled] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+/* Common shared layout for sections 2-7 */
+.shared-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.shared-section h1 {
+  width: 75%;
+  font-size: 3rem;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.shared-section .interaction {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
+  width: 50%; /* Matches the header width */
+}
+
+.shared-section .answer-container {
+  margin-top: 20px;
+  padding: 15px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  line-height: 1.5;
+  text-align: left;
+  visibility: hidden; /* Initially hidden */
+  transition: all 0.3s ease;
+  width: 50%;
+}
+
+.shared-section .answer-container.visible {
+  visibility: visible; /* Show on button interaction */
+  min-height: 50px;
+}
+
+
