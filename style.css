@@ -166,6 +166,17 @@ html, body {
   text-align: left; /* Left-align header */
 }
 
+/* Align instruction with h1 in #section2 */
+#section2 .instruction {
+  width: 75%; /* Matches h1 width */
+  text-align: left; /* Aligns text with h1 */
+  font-size: 1.2rem; /* Adjust font size as needed */
+  font-weight: bold; /* Optional: Make it bold */
+  margin-bottom: 10px; /* Spacing between instruction and h1 */
+  color: #e8eef6; /* Matches section color scheme */
+}
+
+
 /* Interaction Buttons */
 #section2 .interaction {
   display: flex;
@@ -631,6 +642,23 @@ html, body {
 .next-button, .back-button {
   background-color: #2e4f7e;
   color: #e8eef6;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#section2 .next-button, 
+#section2 .back-button,
+#section5 .next-button, 
+#section5 .back-button,
+#section7 .next-button, 
+#section7 .back-button {
+  background-color: white;
+  color: #2e4f7e;
   padding: 10px 20px;
   font-size: 1rem;
   font-weight: bold;
