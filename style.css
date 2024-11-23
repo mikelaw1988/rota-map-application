@@ -232,8 +232,8 @@ html, body {
 #section4 .section2-svg {
   position: absolute; /* Position relative to the parent */
   bottom: -100px;       /* Adjust spacing from the bottom */
-  right: 20px;        /* Adjust spacing from the right */
-  width: 600px;       /* Adjust SVG size */
+  right: 0px;        /* Adjust spacing from the right */
+  width: 800px;       /* Adjust SVG size */
   height: auto;       /* Maintain aspect ratio */
   z-index: 1;         /* Place above the background but below text if necessary */
 }
@@ -241,9 +241,9 @@ html, body {
 /* Section 5 SVG Styling */
 #section5 .section2-svg {
   position: absolute; /* Position relative to the parent */
-  bottom: 40px;       /* Adjust spacing from the bottom */
-  right: 20px;        /* Adjust spacing from the right */
-  width: 600px;       /* Adjust SVG size */
+  bottom: -150px;       /* Adjust spacing from the bottom */
+  right: 0px;        /* Adjust spacing from the right */
+  width: 800px;       /* Adjust SVG size */
   height: auto;       /* Maintain aspect ratio */
   z-index: 1;         /* Place above the background but below text if necessary */
 }
@@ -261,9 +261,9 @@ html, body {
 /* Section 7 SVG Styling */
 #section7 .section2-svg {
   position: absolute; /* Position relative to the parent */
-  bottom: 40px;       /* Adjust spacing from the bottom */
-  right: 20px;        /* Adjust spacing from the right */
-  width: 600px;       /* Adjust SVG size */
+  bottom: -150px;       /* Adjust spacing from the bottom */
+  right: 0px;        /* Adjust spacing from the right */
+  width: 800px;       /* Adjust SVG size */
   height: auto;       /* Maintain aspect ratio */
   z-index: 1;         /* Place above the background but below text if necessary */
 }
